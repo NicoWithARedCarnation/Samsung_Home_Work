@@ -5,14 +5,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
-
-    <TextView
+    <EditText
+        android:id="@+id/Num1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginBottom="16dp"
+        android:ems="10"
+        android:hint="Первое число"
+        android:inputType="number"
+        app:layout_constraintBottom_toTopOf="@+id/Num2"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.6" />
+    <EditText
+        android:id="@+id/Num2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="99dp"
+        android:layout_marginLeft="99dp"
+        android:layout_marginTop="16dp"
+        android:ems="10"
+        android:hint="Второе число"
+        android:inputType="number"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Num1" />
+    <TextView
+        android:id="@+id/Res"
+        android:layout_width="187dp"
+        android:layout_height="55dp"
+        android:layout_marginStart="140dp"
+        android:layout_marginLeft="140dp"
+        android:layout_marginTop="80dp"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Sum"
+        tools:text="Результат" />
+    <Button
+        android:id="@+id/Sum"
+        android:layout_width="50dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginLeft="80dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onButtonClick"
+        android:text="+"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Num2" />
+    <Button
+        android:id="@+id/Minus"
+        android:layout_width="50dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onButtonClick"
+        android:text="-"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/Sum"
+        app:layout_constraintTop_toBottomOf="@+id/Num2" />
+    <Button
+        android:id="@+id/Mul"
+        android:layout_width="50dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onButtonClick"
+        android:text="*"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/Minus"
+        app:layout_constraintTop_toBottomOf="@+id/Num2" />
+    <Button
+        android:id="@+id/Del"
+        android:layout_width="50dp"
+        android:layout_height="65dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginTop="36dp"
+        android:onClick="onButtonClick"
+        android:text="/"
+        android:textSize="30sp"
+        app:layout_constraintStart_toEndOf="@+id/Mul"
+        app:layout_constraintTop_toBottomOf="@+id/Num2" />
 </androidx.constraintlayout.widget.ConstraintLayout>
