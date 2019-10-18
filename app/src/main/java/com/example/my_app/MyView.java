@@ -10,7 +10,7 @@ import android.view.View;
 public class MyView extends View {
 
 
-    int N = 50; // количество шариков
+    int N = 10; // количество шариков
     float[] x = new float[N];
     float[] y = new float[N];
     float[] vx = new float[N];
@@ -37,18 +37,18 @@ public class MyView extends View {
             array[i] += values[i];
         }
     }
-    @Override
-    protected void onDraw(Canvas canvas){
-        // отрисовываем все шарики
+    void drawBalls(Canvas canvas){
         for (int i = 0; i < N; i++) {
             canvas.drawCircle(x[i], y[i], 10, paint);
-
+            paint.setColor(Color.BLUE);//поменла цвет
         }
-        paint.setColor(Color.BLUE); //поменла цвет
-        // готовим массивы x и у для следущего кадра
+    }
+    @Override
+    protected void onDraw(Canvas canvas){
+        drawBalls(canvas);  // отрисовываем все шарики
+        add(x, vx); // готовим массивы x и у для следущего кадра
+        add(y, vy);
         for (int i = 0; i < N; i++) {
-            add(x, vx);
-            add(y, vy);
             if (x[i] < 15 || x[i] > this.getWidth()-10){  // шарики не выходят за поля экрана
                 vx[i] = - vx[i];
             }
@@ -57,7 +57,6 @@ public class MyView extends View {
             }
 
         }
-        //запрашиваем перерисовку
-        invalidate();
+        invalidate();  //запрашиваем перерисовку
     }
 }
