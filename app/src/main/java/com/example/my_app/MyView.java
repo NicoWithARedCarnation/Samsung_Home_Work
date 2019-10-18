@@ -57,6 +57,6 @@ public class MyView extends View {
             }
 
         }
-        invalidate();  //запрашиваем перерисовку
+        invalidate();     //запрашиваем перерисовку
     }
 }
